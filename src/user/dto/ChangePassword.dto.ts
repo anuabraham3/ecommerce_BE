@@ -1,9 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsString, Matches, MaxLength, MinLength } from 'class-validator';
 
-export class ResetPasswordDto {
-    @ApiProperty({example: null})
-    token:string;
+export class ChangePasswordDto {
+ 
+  @ApiProperty({ example: null })
+  @IsString()
+  readonly currentPassword: string;
+
 
   @ApiProperty({ example: null })
   @IsString()

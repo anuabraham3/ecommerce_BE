@@ -1,8 +1,4 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
-import * as config from 'config';
-
-const dbConfig = config.get('db');
-
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
@@ -11,16 +7,9 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   port: 5432,
   username: 'postgres',
   password: 'admin',
-  database: 'postgres',
+  database: 'bakers',
   entities: [__dirname + '/../**/*.entity.{js,ts}'],
-  migrations: [__dirname + '/../**/migrations/*{.ts,.js}'],
   synchronize: false,
+  migrations: [__dirname + '/../**/migrations/*{.ts,.js}'],
   migrationsRun: true,
-  // ssl: {
-  //   ca: fs.readFileSync(__dirname + '/rds-ca-2019-root.pem')
-  // },
-  // logging: ["query", "error"],
-  cli: {
-    migrationsDir: 'migrations',
-  },
 };
